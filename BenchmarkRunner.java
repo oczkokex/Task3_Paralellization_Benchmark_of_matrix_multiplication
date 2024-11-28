@@ -8,7 +8,6 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 public class BenchmarkRunner {
     public static void main(String[] args) throws RunnerException {
 
-        // Get and print available CPU cores before running the benchmark
         int availableCores = Runtime.getRuntime().availableProcessors();
         System.out.println("Available CPU cores: " + availableCores);
 

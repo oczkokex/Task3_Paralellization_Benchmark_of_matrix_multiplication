@@ -44,10 +44,11 @@ public class Matrix {
         // Submit tasks to process chunks of rows
         for (int t = 0; t < numThreads; t++) {
             final int startRow = t * chunkSize;
-            final int endRow = Math.min(startRow + chunkSize, rowsA); // Ensure we don't go beyond the last row
+            final int endRow = Math.min(startRow + chunkSize, rowsA);
 
+        // Iterate over the assigned chunk
             executor.submit(() -> {
-                for (int i = startRow; i < endRow; i++) { // Iterate over the assigned chunk
+                for (int i = startRow; i < endRow; i++) {
                     for (int j = 0; j < colsB; j++) {
                         for (int k = 0; k < colsA; k++) {
                             result[i][j] += matrixA[i][k] * matrixB[k][j];
